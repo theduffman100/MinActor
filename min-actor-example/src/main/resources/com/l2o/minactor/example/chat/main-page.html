@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MinActor Websocket chat example</title>
+<script>
+var proto = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+var ws = new WebSocket(proto + location.host);
+
+function logChat(message) {
+	document.getElementById("chatlog").innerHTML += message + "<br/>";
+
+}
+ws.onopen = function() {
+};
+
+ws.onmessage = function (evt) {
+	logChat(evt.data);
+};
+
+ws.onclose = function() {
+	logChat("Chat closed");
+};
+
+ws.onerror = function(err) {
+    logChat("Error: " + JSON.stringify(err, ["message", "arguments", "type", "name"]));
+};
+function onSend() {
+	ws.send(document.getElementById("message").value);
+}
+</script>
+</head>
+<body>
+Chat example
+<br/>
+<input type="text" name="message" id="message"><br>
+<button name="send" id="send"onclick="onSend()">Rant</button>
+<br/>
+<div id="chatlog"></div>
+</body>
+</html>
