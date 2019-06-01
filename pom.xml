@@ -4,13 +4,14 @@
 
   <groupId>com.l2o</groupId>
   <artifactId>MinActor</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>pom</packaging>
 
   <name>MinActor</name>
   <url>http://maven.apache.org</url>
   <scm>
 		<developerConnection>scm:git:https://github.com/theduffman100/MinActor.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
