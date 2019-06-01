@@ -9,7 +9,7 @@ import com.l2o.minactor.proxy.DelegateActor;
  * This class adds the Provider interface so that interfaces can use
  * the @ProvidedBy annotation with a subclass of this.
  *
- * @param <INTERFACE>
+ * @param <INTERFACE> The interface to wrap
  */
 public class GuiceDelegateActor<INTERFACE> extends DelegateActor<INTERFACE> implements Provider<INTERFACE> {
   @Inject

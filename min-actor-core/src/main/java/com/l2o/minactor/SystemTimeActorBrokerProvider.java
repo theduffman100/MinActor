@@ -29,11 +29,9 @@ public class SystemTimeActorBrokerProvider extends BaseActor<Runnable> implement
    * all events received by the temporary worker will be transferred to the
    * permanent broker.
    *
-   * @param handler - Not null - The handler that is requesting a broker - the
+   * @param actor - Not null - The handler that is requesting a broker - the
    *                provider will keep it in a weak hashmap and may eventually
    *                shut down the event broker if all handlers are GC'd.
-   * 
-   * @return The event broker
    */
   @Override
   public void assignBroker(Attached actor) {

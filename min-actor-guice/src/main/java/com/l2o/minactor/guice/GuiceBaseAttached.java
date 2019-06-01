@@ -7,8 +7,6 @@ import com.l2o.minactor.BaseAttached;
 /**
  * Guice-injected broker-attached object that is automatically injected at
  * creation time.
- *
- * @param <T> The event type
  */
 public class GuiceBaseAttached extends BaseAttached {
   @Inject

@@ -4,7 +4,7 @@ package com.l2o.minactor;
  * A base class that implements the Actor interface using a broker to manage
  * events asynchronously.
  *
- * @param <EVENTTYPE>
+ * @param <EVENTTYPE> The type of objects that the actor can handle
  */
 public class BaseActor<EVENTTYPE> extends BaseAttached implements AttachedActor<EVENTTYPE> {
   <TT> void postEvent(TT event, EventHandler<TT> processor) {
