@@ -6,5 +6,5 @@ package com.l2o.minactor;
  * @param <T> The type of events
  */
 public interface EventHandler<EVENTTYPE> {
-    void handleEvent(EVENTTYPE event);
+  void handleEvent(EVENTTYPE event);
 }

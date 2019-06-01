@@ -10,8 +10,8 @@ import com.l2o.minactor.BaseActor;
  * @param <EVENTTYPE> The event type
  */
 public class GuiceBaseActor<EVENTTYPE> extends BaseActor<EVENTTYPE> {
-    @Inject
-    public void initBrokerProvider(ActorBrokerProvider brokerProvider) {
-	super.attach(brokerProvider);
-    }
+  @Inject
+  public void initBrokerProvider(ActorBrokerProvider brokerProvider) {
+    super.attach(brokerProvider);
+  }
 }

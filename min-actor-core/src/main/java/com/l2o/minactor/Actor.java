@@ -6,5 +6,5 @@ package com.l2o.minactor;
  * @param <EVENTTYPE> The type of event
  */
 public interface Actor<EVENTTYPE> {
-    void postEvent(EVENTTYPE event);
+  void postEvent(EVENTTYPE event);
 }

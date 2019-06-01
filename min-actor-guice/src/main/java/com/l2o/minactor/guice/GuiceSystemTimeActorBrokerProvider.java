@@ -8,11 +8,12 @@ import com.l2o.minactor.SystemTimeActorBrokerProvider;
 
 @Singleton
 public class GuiceSystemTimeActorBrokerProvider extends SystemTimeActorBrokerProvider implements ActorBrokerProvider {
-    @Inject(optional=true)
-    @Named("minactor.handlers.per.thread")
-    private int maxHandlersPerThread = 20;
-    @Override
-    public int getMaxHandlersPerThread() {
-        return maxHandlersPerThread;
-    }
+  @Inject(optional = true)
+  @Named("minactor.handlers.per.thread")
+  private int maxHandlersPerThread = 20;
+
+  @Override
+  public int getMaxHandlersPerThread() {
+    return maxHandlersPerThread;
+  }
 }

@@ -14,29 +14,31 @@ import com.l2o.minactor.call.CallResult;
 import com.l2o.minactor.future.FutureKeeper;
 
 /**
- * This module wires simulated time brokers into Guice. A Singleton SimTimeActorBrokerImpl is
- *  registered as the one and only broker and time provider.
+ * This module wires simulated time brokers into Guice. A Singleton
+ * SimTimeActorBrokerImpl is registered as the one and only broker and time
+ * provider.
  */
 public class SimTimeActorModule extends AbstractModule {
+  @Override
+  protected void configure() {
+    SimTimeActorBroker broker = new SimTimeActorBroker();
+    bind(ActorBroker.class).toInstance(broker);
+    bind(SimTimeRunner.class).toInstance(broker);
+    bind(ActorBrokerProvider.class).toInstance(new SingletonActorBrokerProvider(broker));
+    bind(FutureKeeper.class).toInstance(new LimitedFutureKeeper());
+  }
+
+  private static class LimitedFutureKeeper implements FutureKeeper {
     @Override
-    protected void configure() {
-	SimTimeActorBroker broker = new SimTimeActorBroker();
-	bind(ActorBroker.class).toInstance(broker);
-	bind(SimTimeRunner.class).toInstance(broker);
-	bind(ActorBrokerProvider.class).toInstance(new SingletonActorBrokerProvider(broker));
-	bind(FutureKeeper.class).toInstance(new LimitedFutureKeeper());
+    public <RESULT> CallResult<RESULT> waitFor(Future<RESULT> future) {
+      BaseCallResult<RESULT> result = new BaseCallResult<>(ActorBroker.getCurrentBroker());
+      Call<RESULT> call = result.getTask(future);
+      try {
+        call.success(future.get());
+      } catch (Exception ex) {
+        call.error(ex);
+      }
+      return result;
     }
-    private static class LimitedFutureKeeper implements FutureKeeper {
-	@Override
-	public <RESULT> CallResult<RESULT> waitFor(Future<RESULT> future) {
-	    BaseCallResult<RESULT> result = new BaseCallResult<>(ActorBroker.getCurrentBroker());
-	    Call<RESULT> call = result.getTask(future);
-	    try {
-		call.success(future.get());
-	    } catch (Exception ex) {
-		call.error(ex);
-	    }
-	    return result;
-	}
-    }
+  }
 }
