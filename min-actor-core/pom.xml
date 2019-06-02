@@ -4,9 +4,9 @@
   <parent>
     <groupId>com.l2o</groupId>
     <artifactId>MinActor</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
   </parent>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.4-SNAPSHOT</version>
   <artifactId>min-actor-core</artifactId>
   <name>min-actor-core</name>
   <properties>
