@@ -4,9 +4,9 @@
 	<parent>
 		<groupId>com.l2o</groupId>
 		<artifactId>MinActor</artifactId>
-		<version>0.0.4-SNAPSHOT</version>
+		<version>0.0.6-SNAPSHOT</version>
 	</parent>
-	<version>0.0.4-SNAPSHOT</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<artifactId>min-actor-example</artifactId>
 	<name>min-actor-example</name>
 	<url>http://maven.apache.org</url>
@@ -33,12 +33,12 @@
 		<dependency>
 			<groupId>com.l2o</groupId>
 			<artifactId>min-actor-guice</artifactId>
-			<version>0.0.4-SNAPSHOT</version>
+			<version>0.0.6-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.l2o</groupId>
 			<artifactId>min-actor-core</artifactId>
-			<version>0.0.4-SNAPSHOT</version>
+			<version>0.0.6-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -4,7 +4,7 @@
 
   <groupId>com.l2o</groupId>
   <artifactId>MinActor</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.6-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>MinActor</name>
@@ -47,6 +47,11 @@
                 <target>1.8</target>
             </configuration>
         </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.1</version>
+            </plugin>
   	</plugins>
   </build>
 	<distributionManagement>
